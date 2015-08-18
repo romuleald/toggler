@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            vertical-align: middle;
+        }
+
+        .list-item {
+            display: inline-block;
+        }
+
+        /* simple css to show/hide*/
+        .popin {
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            visibility: hidden;
+        }
+
+        .popin:before {
+            background: rgba(0, 0, 0, 0);
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            transition: all 125ms;
+        }
+
+        .popin-content {
+            background: #FFF;
+            border-radius: 20px;
+            display: table;
+            height: calc(100vh - 90px);
+            margin: 45px auto 0 auto;
+            position: relative;
+            text-align: center;
+            width: 510px;
+            transition: all 125ms;
+        }
+
+        .in-content {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .popin-close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .active.popin {
+            visibility: visible;
+        }
+
+        .active.popin:before {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .active .popin-content {
+            border-radius: 0;
+            height: calc(100vh - 100px);
+            margin-top: 50px;
+            width: 500px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<h1>Group</h1>
+
+<div>
+    <span class="open-popin JS_toggler" data-toggler-id="1" data-toggler-group="popin">Popin</span>
+
+    <div class="popin JS_item_toggler" data-toggler-itemid="1" data-toggler-group="popin">
+        <div class="popin-content">
+            <div class="in-content">
+                <span class="popin-close JS_toggler" data-toggler-id="1" data-toggler-group="popin" data-toggler-action="close">×</span>
+                <img src="http://zastavki.cryazone.com/user-content/uploads/wall/mid/99/Surprised_kitten_cryazone.com.jpg" alt="surprised kitten">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="toggler.js"></script>
+<script>
+    togglers.init();
+</script>
+</body>
+</html>

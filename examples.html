@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .list-item {
+            display: inline-block;
+        }
+
+        /* simple css to show/hide*/
+
+        .accordion-item {
+            cursor: pointer;
+        }
+
+        .toggler-item.active {
+            background: gold;
+        }
+
+        .toggler-wrapper {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .toggler-wrapper.active {
+            height: auto;
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+
+
+<div>
+    <ul>
+        <li class="list-item"><a class="toggler-item JS_toggler active" data-toggler-id="1" data-toggler-group="tab-item">btn 1</a></li>
+        <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="2" data-toggler-group="tab-item">btn 2</a></li>
+        <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="3" data-toggler-group="tab-item">btn 3</a></li>
+        <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="4" data-toggler-group="tab-item">btn 4</a></li>
+        <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="5" data-toggler-group="tab-item">btn 5</a></li>
+    </ul>
+    <div class="toggler-wrapper JS_item_toggler active" data-toggler-itemid="1" data-toggler-group="tab-item">
+        <img width="800" src="http://animal-backgrounds.com/files/Beagle%20Puppy/Beagle-Puppy-and-Kitten-Wallpaper-.jpg" alt="">
+    </div>
+    <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="2" data-toggler-group="tab-item">
+        <img src="http://images4.fanpop.com/image/photos/16700000/Kittens-Puppies-teddybear64-16751528-800-600.jpg" alt="">
+    </div>
+
+    <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="3" data-toggler-group="tab-item">
+        <img src="http://hdcutepics.com/wp-content/uploads/2014/09/cute-little-kittens-and-puppies.jpg" alt="">
+    </div>
+
+    <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="4" data-toggler-group="tab-item">
+        <img src="http://gallsource.com/wp-content/uploads/2014/08/HD-Picture-Puppies-And-Kittens-Kitten-Puppy-Kitties-Wallpaper.jpg" alt="">
+    </div>
+
+    <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="5" data-toggler-group="tab-item">
+        <img src="http://www.wallpapernow.net/images/wallpaper/dog-and-cat-wallpaper.jpg" alt="">
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="toggler.js"></script>
+<script>
+    togglers.init();
+</script>
+</body>
+</html>

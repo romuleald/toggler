@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .list-item {
+            display: inline-block;
+        }
+
+        /* simple css to show/hide*/
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown-title {
+            cursor: pointer;
+            display: block;
+            padding: 0 5px;
+            color: #231f20;
+        }
+
+        .dropdown-title:after {
+            color: #9F9F9F;
+            content: "\e604";
+            display: inline-block;
+            font-family: 'icon';
+            font-size: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .dropdown-title:hover {
+            color: #AF8716;
+        }
+
+        .dropdown-list {
+            background: #FFF;
+            border: solid 1px transparent;
+            opacity: 0;
+            padding: 16px 20px;
+            position: absolute;
+            left: 0;
+            height: auto;
+            text-align: left;
+            -webkit-transition: visibility 125ms ease-out 50ms, opacity 125ms ease-out 50ms, border-top 125ms ease-out 50ms, border-right 125ms ease-out 0ms, border-bottom 125ms ease-out 50ms, border-left 125ms ease-out 0ms;
+            transition: visibility 125ms ease-out 50ms, opacity 125ms ease-out 50ms, border-top 125ms ease-out 50ms, border-right 125ms ease-out 0ms, border-bottom 125ms ease-out 50ms, border-left 125ms ease-out 0ms;
+            visibility: hidden;
+            z-index: 2;
+        }
+
+        .dropdown-item a {
+            color: inherit;
+            white-space: nowrap;
+        }
+
+        .dropdown-item a:hover {
+            color: #231f20;
+        }
+
+        .dropdown .active.dropdown-title, .active.inline-title  {
+            color: #AF8716;
+        }
+
+        .dropdown .active.dropdown-title:after {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .dropdown .active.dropdown-list {
+            border: solid 1px #DFDFDF;
+            opacity: 1;
+            -webkit-transition: visibility 125ms ease-out, opacity 125ms ease-out, border-top 125ms ease-out 25ms, border-right 125ms ease-out 50ms, border-bottom 125ms ease-out 75ms, border-left 125ms ease-out 100ms;
+            transition: visibility 125ms ease-out, opacity 125ms ease-out, border-top 125ms ease-out 25ms, border-right 125ms ease-out 50ms, border-bottom 125ms ease-out 75ms, border-left 125ms ease-out 100ms;
+            visibility: visible;
+            z-index: 3;
+        }
+
+        .dropdown .active .dropdown-item {
+            margin: 9px 8px;
+            -webkit-transition: all 125ms ease-out;
+            transition: all 125ms ease-out;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<h1>Group</h1>
+<div>
+    <div class="dropdown">
+        <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown">Dropdown</span>
+        <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown">
+            <li class="dropdown-item"><a>Dropdown 1</a></li>
+            <li class="dropdown-item"><a>Dropdown 2</a></li>
+            <li class="dropdown-item"><a>Dropdown 3</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <span class="dropdown-title JS_toggler" data-toggler-id="2" data-toggler-group="menu-dropdown">Dropdown 2</span>
+        <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="2" data-toggler-group="menu-dropdown">
+            <li class="dropdown-item"><a>Dropdown 1</a></li>
+            <li class="dropdown-item"><a>Dropdown 2</a></li>
+            <li class="dropdown-item"><a>Dropdown 3</a></li>
+        </ul>
+    </div>
+
+</div>
+<h1>Independant</h1>
+<div>
+    <div class="dropdown">
+        <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-ind-1">Dropdown</span>
+        <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown-ind-1">
+            <li class="dropdown-item"><a>Dropdown 1</a></li>
+            <li class="dropdown-item"><a>Dropdown 2</a></li>
+            <li class="dropdown-item"><a>Dropdown 3</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-ind-2">Dropdown 2</span>
+        <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown-ind-2">
+            <li class="dropdown-item"><a>Dropdown 1</a></li>
+            <li class="dropdown-item"><a>Dropdown 2</a></li>
+            <li class="dropdown-item"><a>Dropdown 3</a></li>
+        </ul>
+    </div>
+
+</div>
+<h1>Multi Trigger</h1>
+<div>
+    <div class="dropdown">
+        <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-mult-1">Multi trigger 1</span>
+        <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown-mult-1">
+            <li class="dropdown-item"><a>Dropdown 1</a></li>
+            <li class="dropdown-item"><a>Dropdown 2</a></li>
+            <li class="dropdown-item"><a>Dropdown 3</a></li>
+        </ul>
+    </div>
+    <span class="inline-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-mult-1">Multi trigger 1</span>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="toggler.js"></script>
+<script>
+    togglers.init();
+</script>
+</body>
+</html>
