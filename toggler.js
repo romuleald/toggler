@@ -23,6 +23,9 @@ var togglers = (function () {
         var isActive = opening ? !opening : closing ? closing : $content.hasClass('active');
 
         // Add remove classes
+        if($content.data('toggler-group-no-close') && !((toggle || opening || closing) && !isActive)){
+            return;
+        }
         if (toggle || opening || closing) {
             $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-group=' + group + ']');
             $linksTogglerGroup.removeClass('active');
