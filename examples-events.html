@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Toggler by romuleald</title>
+    <title>Toggler by romuleald - example popins</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/examples.css">
@@ -38,20 +38,31 @@
             <li><a href="examples-dropdown.html">DropDown</a></li>
             <li><a href="examples-popin.html">Popin</a></li>
             <li><a href="examples-layers.html">Layer</a></li>
-            <li><a href="examples-events.html">Events</a></li>
+            <li><a class="current-page" href="examples-events.html">Events</a></li>
             <li><a href="examples-trigger.html">Trigger</a></li>
         </ul>
     </header>
     <section>
         <h1>
             <a id="toggler" class="anchor" href="#toggler" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-            Documentation
+            Example: Popins
         </h1>
         <div id="content">
+            <div>
+                <span class="open-popin JS_toggler" data-toggler-id="1" data-toggler-group="popin">Open popin</span>
+                <p id="log"></p>
 
-            Just install the script and call it once <code>togglers.init();</code> and that's it. It's working!
-
+                <div class="popin JS_item_toggler" data-toggler-itemid="1" data-toggler-group="popin" id="logger">
+                    <div class="popin-content">
+                        <div class="in-content">
+                            <span class="popin-close JS_toggler" data-toggler-id="1" data-toggler-group="popin" data-toggler-action="close">×</span>
+                            <img src="http://zastavki.cryazone.com/user-content/uploads/wall/mid/99/Surprised_kitten_cryazone.com.jpg" alt="surprised kitten">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </section>
     <footer>
         <p>This project is maintained by <a href="https://github.com/romuleald">romuleald</a></p>
@@ -66,6 +77,9 @@
 <script src="javascripts/toggler.js"></script>
 <script>
     togglers.init();
+    $('#logger').on('open close', function (e) {
+        $('#log').html('The popin is: ' + e.type);
+    });
 </script>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Toggler by romuleald</title>
+    <title>Toggler by romuleald - example togglers</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/examples.css">
@@ -33,7 +33,7 @@
         <p>Toggler is a jQuery based script that allow you to click and command whatever you want on your website, possibility are infinite!</p>
         <p>Examples:</p>
         <ul id="nav">
-            <li><a href="examples-toggler.html">Toggle</a></li>
+            <li><a class="current-page" href="examples-toggler.html">Toggle</a></li>
             <li><a href="examples-tabs.html">Tabs</a></li>
             <li><a href="examples-dropdown.html">DropDown</a></li>
             <li><a href="examples-popin.html">Popin</a></li>
@@ -45,13 +45,36 @@
     <section>
         <h1>
             <a id="toggler" class="anchor" href="#toggler" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-            Documentation
+            Example: Toggler
         </h1>
         <div id="content">
+            <div>
+                <ul>
+                    <li class="list-item"><a class="toggler-item JS_toggler active" data-toggler-id="1" data-toggler-group="tab-item">btn 1</a></li>
+                    <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="2" data-toggler-group="tab-item">btn 2</a></li>
+                    <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="3" data-toggler-group="tab-item">btn 3</a></li>
+                    <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="4" data-toggler-group="tab-item">btn 4</a></li>
+                    <li class="list-item"><a class="toggler-item JS_toggler" data-toggler-id="5" data-toggler-group="tab-item">btn 5</a></li>
+                </ul>
+                <div class="toggler-wrapper JS_item_toggler active" data-toggler-itemid="1" data-toggler-group="tab-item">
+                    <img width="800" src="http://www.wicklowmontessoriprimaryschoolcoders.me/coders1/isabelle/images/puppy7.jpg" alt="">
+                </div>
+                <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="2" data-toggler-group="tab-item">
+                    <img src="http://images4.fanpop.com/image/photos/16700000/Kittens-Puppies-teddybear64-16751528-800-600.jpg" alt="">
+                </div>
 
-            Just install the script and call it once <code>togglers.init();</code> and that's it. It's working!
+                <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="3" data-toggler-group="tab-item">
+                    <img src="http://hdcutepics.com/wp-content/uploads/2014/09/cute-little-kittens-and-puppies.jpg" alt="">
+                </div>
 
-        </div>
+                <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="4" data-toggler-group="tab-item">
+                    <img src="http://gallsource.com/wp-content/uploads/2014/08/HD-Picture-Puppies-And-Kittens-Kitten-Puppy-Kitties-Wallpaper.jpg" alt="">
+                </div>
+
+                <div class="toggler-wrapper JS_item_toggler" data-toggler-itemid="5" data-toggler-group="tab-item">
+                    <img src="http://www.wallpapernow.net/images/wallpaper/dog-and-cat-wallpaper.jpg" alt="">
+                </div>
+            </div>        </div>
     </section>
     <footer>
         <p>This project is maintained by <a href="https://github.com/romuleald">romuleald</a></p>

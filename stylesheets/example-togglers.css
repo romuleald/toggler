@@ -1,0 +1,21 @@
+
+/* simple css to show/hide*/
+
+.accordion-item {
+    cursor: pointer;
+}
+
+.toggler-item.active {
+    background: gold;
+}
+
+.toggler-wrapper {
+    height: 0;
+    overflow: hidden;
+}
+
+.toggler-wrapper.active {
+    height: auto;
+    overflow: visible;
+}
+    

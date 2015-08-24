@@ -1,0 +1,22 @@
+
+
+/* simple css to show/hide*/
+
+.toggler-tab-item {
+    cursor: pointer;
+}
+
+.toggler-tab-item.active {
+    background: gold;
+}
+
+.toggler-tab-wrapper {
+    height: 0;
+    overflow: hidden;
+}
+
+.toggler-tab-wrapper.active {
+    height: auto;
+    overflow: visible;
+}
+    

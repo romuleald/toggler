@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Toggler by romuleald - example dropdown</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/examples.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1><a href="./">Toggler</a></h1>
+
+        <p></p>
+
+        <p class="view"><a href="https://github.com/romuleald/toggler">View the Project on GitHub
+            <small>romuleald/toggler</small>
+        </a></p>
+
+
+        <ul class="github-link">
+            <li><a href="https://github.com/romuleald/toggler/zipball/master">Download <strong>ZIP File</strong></a></li>
+            <li><a href="https://github.com/romuleald/toggler/tarball/master">Download <strong>TAR Ball</strong></a></li>
+            <li><a href="https://github.com/romuleald/toggler">View On <strong>GitHub</strong></a></li>
+        </ul>
+        <p>Toggler is a jQuery based script that allow you to click and command whatever you want on your website, possibility are infinite!</p>
+        <p>Examples:</p>
+        <ul id="nav">
+            <li><a href="examples-toggler.html">Toggle</a></li>
+            <li><a href="examples-tabs.html">Tabs</a></li>
+            <li><a class="current-page" href="examples-dropdown.html">DropDown</a></li>
+            <li><a href="examples-popin.html">Popin</a></li>
+            <li><a href="examples-layers.html">Layer</a></li>
+            <li><a href="examples-events.html">Events</a></li>
+            <li><a href="examples-trigger.html">Trigger</a></li>
+        </ul>
+    </header>
+    <section>
+        <h1>
+            <a id="toggler" class="anchor" href="#toggler" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+            Example: Dropdown
+        </h1>
+        <div id="content">
+            <h2>Dropdown grouped</h2>
+            <div>
+                <div class="dropdown">
+                    <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown">Dropdown</span>
+                    <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown">
+                        <li class="dropdown-item"><a>Dropdown 1</a></li>
+                        <li class="dropdown-item"><a>Dropdown 2</a></li>
+                        <li class="dropdown-item"><a>Dropdown 3</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <span class="dropdown-title JS_toggler" data-toggler-id="2" data-toggler-group="menu-dropdown">Dropdown 2</span>
+                    <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="2" data-toggler-group="menu-dropdown">
+                        <li class="dropdown-item"><a>Dropdown 1</a></li>
+                        <li class="dropdown-item"><a>Dropdown 2</a></li>
+                        <li class="dropdown-item"><a>Dropdown 3</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <h2>Dropdown independant</h2>
+            <div>
+                <div class="dropdown">
+                    <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-ind-1">Dropdown</span>
+                    <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown-ind-1">
+                        <li class="dropdown-item"><a>Dropdown 1</a></li>
+                        <li class="dropdown-item"><a>Dropdown 2</a></li>
+                        <li class="dropdown-item"><a>Dropdown 3</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-ind-2">Dropdown 2</span>
+                    <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown-ind-2">
+                        <li class="dropdown-item"><a>Dropdown 1</a></li>
+                        <li class="dropdown-item"><a>Dropdown 2</a></li>
+                        <li class="dropdown-item"><a>Dropdown 3</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <h2>Dropdown with multi Trigger</h2>
+            <div>
+                <div class="dropdown">
+                    <span class="dropdown-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-mult-1">Multi trigger 1</span>
+                    <ul class="dropdown-list toggler-wrapper JS_item_toggler" data-toggler-itemid="1" data-toggler-group="menu-dropdown-mult-1">
+                        <li class="dropdown-item"><a>Dropdown 1</a></li>
+                        <li class="dropdown-item"><a>Dropdown 2</a></li>
+                        <li class="dropdown-item"><a>Dropdown 3</a></li>
+                    </ul>
+                </div>
+                <span class="inline-title JS_toggler" data-toggler-id="1" data-toggler-group="menu-dropdown-mult-1">Multi trigger 1</span>
+
+            </div>
+            <p>All the affected triggers get the <code>"active" class</code></p>
+        </div>
+    </section>
+    <footer>
+        <p>This project is maintained by <a href="https://github.com/romuleald">romuleald</a></p>
+
+        <p>
+            <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+        </p>
+    </footer>
+</div>
+<script src="javascripts/scale.fix.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="javascripts/toggler.js"></script>
+<script>
+    togglers.init();
+</script>
+
+</body>
+</html>
