@@ -19,6 +19,7 @@ var togglers = (function () {
 
         var isActive = opening ? !opening : closing ? closing : $content.hasClass('active');
 
+
         // Add remove classes
         if ($content.data('toggler-group-no-close') && !((toggle || opening || closing) && !isActive)) {
             return;
@@ -29,10 +30,13 @@ var togglers = (function () {
             $linksTogglerGroup.removeClass('active');
             $contentGroup.filter('.active').removeClass('active').trigger('close.content');
         }
-        if (!isActive && !closeAll) {
+        if (!isActive && !closeAll && !closing) {
             $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-id=' + toggler_id + '][data-toggler-group=' + group + ']');
             $linksTogglerGroup.addClass('active');
             $content.addClass('active').trigger('open.content');
+        }
+        if(this.tagName === "A"){
+            e.preventDefault();
         }
     };
 
