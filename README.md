@@ -5,7 +5,7 @@
 * **Import script** `<script src="js/toggler.js"></script>`
 * **Call function `togglers`** when document is ready
 ```javascript
-$(document).ready(function () {
+$(function () {
     togglers.init();
 });
 ```
