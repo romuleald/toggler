@@ -107,7 +107,7 @@ var toggler = function (classTrigger = 'js-toggler-trigger', classContent = 'js-
         }
     };
 
-    if (typeof jQuery === 'object') {
+    if (typeof jQuery === 'function') {
         (function ($) {
             $.fn.extend({
                 trigger: function (type, data) {
