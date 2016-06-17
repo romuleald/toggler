@@ -96,7 +96,7 @@ var toggler = function (classTrigger = 'js-toggler-trigger', classContent = 'js-
 
     //init by adding the global event
     var delegate = function (e) {
-        console.info(e.type);
+        //console.info(e);
         for (var target = e.target; target && target != this; target = target.parentNode) {
             // loop parent nodes from the target to the delegation node
             var regExp = new RegExp(classTrigger);
@@ -106,18 +106,33 @@ var toggler = function (classTrigger = 'js-toggler-trigger', classContent = 'js-
             }
         }
     };
-    let eOpen = document.createEvent('Event');
-    let eClose = document.createEvent('Event');
-    let eToggle = document.createEvent('Event');
-    eOpen.initEvent('open', true, true);
-    eClose.initEvent('close', true, true);
-    eToggle.initEvent('toggle', true, true);
+
+    if (typeof jQuery === 'object') {
+        (function ($) {
+            $.fn.extend({
+                trigger: function (type, data) {
+                    return this.each(function () {
+                        if (typeof type == 'string' && /^toggle\./.test('toggle.')) {
+                            var evt = document.createEvent('Event');
+                            evt.initEvent(type, true, true);
+                            if (data) {
+                                evt.data = data;
+                            }
+                            this.dispatchEvent(evt);
+                        } else {
+                            jQuery.event.trigger(type, data, this)
+                        }
+                    });
+                }
+            });
+        })(jQuery);
+    }
 
 
     document.addEventListener('click', delegate);
-    document.addEventListener('open', delegate);
-    document.addEventListener('close', delegate);
-    document.addEventListener('toggle', delegate);
+    document.addEventListener('toggle.open', delegate);
+    document.addEventListener('toggle.close', delegate);
+    document.addEventListener('toggle.toggle', delegate);
     console.info('load');
 };
 
