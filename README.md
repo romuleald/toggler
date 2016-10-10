@@ -3,8 +3,8 @@
 ## Usage 
 
 * **Import script** toggler.js
-** **Import script classic** `<script src="js/toggler.js"></script>`
-** **Import script ES6** `import toggler from 'js-toggler`
+    * **Import script classic** `<script src="js/toggler.js"></script>`
+    * **Import script ES6** `import toggler from 'js-toggler`
 * **Call function `togglers`** when document is ready
 ```javascript
 $(function () {
