@@ -55,5 +55,3 @@ var selector = function (e) {
 var accordion = function () {
     $('body').on('click open close toggle', '.JS_toggler', selector);
 };
-
-module.exports =  accordion;
