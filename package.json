@@ -1,6 +1,6 @@
 {
     "name": "js-toggler",
-    "version": "1.1",
+    "version": "1.1.0",
     "description": "Toggle everything!",
     "main": "toggler.js",
     "scripts": {
