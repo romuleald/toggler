@@ -48,3 +48,9 @@ $('.JS_item_toggler').on('open.content', function () {
 
 * Examples :
   * layers
+
+## Version update
+
+### 1.1
+
+* Bring params to change css class and events

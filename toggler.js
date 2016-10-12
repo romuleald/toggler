@@ -1,59 +1,99 @@
 /**
  * Created by stefan cova & antoine sanchez on 26/01/2015.
- * @version 1.0
+ * @version 1.1
  *
  * trigger:
- * <li class="JS_toggler" data-toggler-group="group" data-toggler-id="id">
+ * <li class="js-toggler" data-toggler-group="group" data-toggler-id="id">
  * available options:
  * data-toggler-action="open|close|close-all"
  *
  * receiver:
- * <div class="JS_item_toggler" data-toggler-group="group" data-toggler-itemid="id">
+ * <div class="js-item-toggler" data-toggler-group="group" data-toggler-itemid="id">
  * available options:
  * data-toggler-group-no-close="true"
  *
  */
+var jsToggler = (function () {
+    /**
+     *
+     * @type {string}
+     * @private
+     */
+    let _cssSelector = '';
+    /**
+     *
+     * @type {string}
+     * @private
+     */
+    let _activeClass = '';
+    /**
+     *
+     * @type {string}
+     * @private
+     */
+    let _currentTriggerClass = '';
+    /**
+     *
+     * @type {string}
+     * @private
+     */
+    let _cssSelectorContent = '';
 
-var selector = function (e) {
-    e.stopImmediatePropagation();//todo check how to improve this quick fix
-    var $allLinksToggler = $('.JS_toggler');
-    var $linkToggler = $(this);
-    var action = e.type;
-    var toggle = /click|toggle/.test(action);
-    var opening = action === 'open' || $linkToggler.data('toggler-action') === 'open';
-    var closing = action === 'close' || $linkToggler.data('toggler-action') === 'close';
-    var closeAll = action === 'close-all' || $linkToggler.data('toggler-action') === 'close-all';
+    var selector = function (e) {
+        e.stopImmediatePropagation();//todo check how to improve this quick fix
+        var $allLinksToggler = $(_cssSelector);
+        var $linkToggler = $(this);
+        var action = e.type;
+        var toggle = /click|toggle/.test(action);
+        var opening = action === 'open' || $linkToggler.data('toggler-action') === 'open';
+        var closing = action === 'close' || $linkToggler.data('toggler-action') === 'close';
+        var closeAll = action === 'close-all' || $linkToggler.data('toggler-action') === 'close-all';
 
-    var $allContents = $('.JS_item_toggler');
-    var group = $linkToggler.data('toggler-group');
-    var toggler_id = $linkToggler.data('toggler-id');
-    var $content = $allContents.filter('[data-toggler-itemid=' + toggler_id + '][data-toggler-group=' + group + ']');
-    var $contentGroup = closing ? $content : $allContents.filter('[data-toggler-group=' + group + ']');
+        var $allContents = $(_cssSelectorContent);
+        var group = $linkToggler.data('toggler-group');
+        var toggler_id = $linkToggler.data('toggler-id');
+        var $content = $allContents.filter('[data-toggler-itemid=' + toggler_id + '][data-toggler-group=' + group + ']');
+        var $contentGroup = closing ? $content : $allContents.filter('[data-toggler-group=' + group + ']');
 
-    var isActive = opening ? !opening : closing ? closing : $content.hasClass('active');
+        var isActive = opening ? !opening : closing ? closing : $content.hasClass(_activeClass);
 
-    // Add remove classes
-    if ($content.data('toggler-group-no-close') && !((toggle || opening || closing) && !isActive)) {
-        return;
-    }
-    if (toggle || opening || closing || closeAll) {
-        let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-group=' + group + ']');
-        $linksTogglerGroup.removeClass('active current-trigger');
-        $contentGroup.filter('.active').removeClass('active').trigger('close.content');
-    }
-    if (!isActive && !closeAll && !closing) {
-        let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-id=' + toggler_id + '][data-toggler-group=' + group + ']');
-        $linksTogglerGroup.addClass('active');
-        $linkToggler.addClass('current-trigger');
-        $content.addClass('active').trigger('open.content');
-    }
-    if (this.tagName === "A") {
-        e.preventDefault();
-    }
-};
+        // Add remove classes
+        if ($content.data('toggler-group-no-close') && !((toggle || opening || closing) && !isActive)) {
+            return;
+        }
+        if (toggle || opening || closing || closeAll) {
+            let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-group=' + group + ']');
+            $linksTogglerGroup.removeClass(_activeClass + ' ' + _currentTriggerClass);
+            $contentGroup.filter('.' + _activeClass).removeClass(_activeClass).trigger('close.content');
+        }
+        if (!isActive && !closeAll && !closing) {
+            let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-id=' + toggler_id + '][data-toggler-group=' + group + ']');
+            $linksTogglerGroup.addClass(_activeClass);
+            $linkToggler.addClass(_currentTriggerClass);
+            $content.addClass(_activeClass).trigger('open.content');
+        }
+        if (this.tagName === "A") {
+            e.preventDefault();
+        }
+    };
+    /**
+     *
+     * @param cssSelector
+     * @param cssSelectorContent
+     * @param activeClass
+     * @param events
+     * @param currentTriggerClass
+     */
+    return function ({cssSelector = '.js-toggler', cssSelectorContent = '.js-item-toggler', activeClass = 'active', events = '', currentTriggerClass = 'current-trigger'} = {}) {
+        events = events ? ' ' + events : '';
+        _cssSelector = cssSelector;
+        _cssSelectorContent = cssSelectorContent;
+        _activeClass = activeClass;
+        _currentTriggerClass = currentTriggerClass;
+        $('body').on('click open close toggle' + events, cssSelector, selector);
+    };
 
-var accordion = function () {
-    $('body').on('click open close toggle', '.JS_toggler', selector);
-};
+})();
 
-module.exports =  accordion;
+
+module.exports = jsToggler;
