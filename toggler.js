@@ -1,6 +1,6 @@
 /**
  * Created by stefan cova & antoine sanchez on 26/01/2015.
- * @version 1.1
+ * @version 1.2
  *
  * trigger:
  * <li class="js-toggler" data-toggler-group="group" data-toggler-id="id">
@@ -63,6 +63,7 @@ var jsToggler = (function () {
         }
         if (toggle || opening || closing || closeAll) {
             let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-group=' + group + ']');
+            $contentGroup.filter('.' + _activeClass).trigger('onbeforeclose.content');
             $linksTogglerGroup.removeClass(_activeClass + ' ' + _currentTriggerClass);
             $contentGroup.filter('.' + _activeClass).removeClass(_activeClass).trigger('close.content');
         }
@@ -70,6 +71,7 @@ var jsToggler = (function () {
             let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-id=' + toggler_id + '][data-toggler-group=' + group + ']');
             $linksTogglerGroup.addClass(_activeClass);
             $linkToggler.addClass(_currentTriggerClass);
+            $content.trigger('onbeforeopen.content');
             $content.addClass(_activeClass).trigger('open.content');
         }
         if (this.tagName === "A") {
