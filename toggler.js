@@ -63,7 +63,7 @@ var jsToggler = (function () {
         }
         if (toggle || opening || closing || closeAll) {
             let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-group=' + group + ']');
-            $contentGroup.filter('.' + _activeClass).trigger('onbeforeclose.content');
+            $contentGroup.filter('.' + _activeClass).trigger('beforeclose.content');
             $linksTogglerGroup.removeClass(_activeClass + ' ' + _currentTriggerClass);
             $contentGroup.filter('.' + _activeClass).removeClass(_activeClass).trigger('close.content');
         }
@@ -71,7 +71,7 @@ var jsToggler = (function () {
             let $linksTogglerGroup = $allLinksToggler.filter('[data-toggler-id=' + toggler_id + '][data-toggler-group=' + group + ']');
             $linksTogglerGroup.addClass(_activeClass);
             $linkToggler.addClass(_currentTriggerClass);
-            $content.trigger('onbeforeopen.content');
+            $content.trigger('beforeopen.content');
             $content.addClass(_activeClass).trigger('open.content');
         }
         if (this.tagName === "A") {
