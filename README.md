@@ -34,7 +34,7 @@ $(function () {
 * **Use your own css** to style `.active` elements !
 
 ## Events / callback
-Your html content can listen to events `open.content` and `close.content`
+Your html content can listen to events `open.content`, `close.content` and `beforeopen.content`, `beforeclose.content`
 Example : 
 ```javascript
 $('.JS_item_toggler').on('open.content', function () {
